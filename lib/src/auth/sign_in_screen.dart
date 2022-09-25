@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:green_grocer/src/auth/sign_up_screen.dart';
 import 'package:green_grocer/src/config/custom_colors.dart';
-
 import 'components/custom_text_field.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -9,7 +9,6 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -24,7 +23,7 @@ class SignInScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    //Nome do app
+                    //Nome do app <------------------------------------------
                     Text.rich(
                       TextSpan(
                         style: const TextStyle(
@@ -48,7 +47,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
 
-                    //Categorias
+                    //Categorias <-------------------------------------------
                     SizedBox(
                       height: 30,
                       child: DefaultTextStyle(
@@ -73,7 +72,7 @@ class SignInScreen extends StatelessWidget {
                 ),
               ),
 
-              //Formulario
+              //Formulario <-----------------------------------------------
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 32,
@@ -88,20 +87,20 @@ class SignInScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    //Email
+                    //Email <-----------------------------------------------
                     const CustomTextField(
                       icon: Icons.email,
                       label: 'Email',
                     ),
 
-                    //Senha
+                    //Senha <-----------------------------------------------
                     const CustomTextField(
                       icon: Icons.password,
                       label: 'Senha',
                       isSecret: true,
                     ),
 
-                    //Botao de entrar
+                    //Botao de entrar <-------------------------------------
                     SizedBox(
                       height: 50,
                       child: ElevatedButton(
@@ -120,7 +119,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
 
-                    //Esqueceu a senha
+                    //Esqueceu a senha <------------------------------------
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
@@ -134,7 +133,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
 
-                    //Divisor
+                    //Divisor <---------------------------------------------
                     Padding(
                       padding: const EdgeInsets.only(bottom: 15),
                       child: Row(
@@ -159,7 +158,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
 
-                    // Botao de novo ususario
+                    // Botao Criar Conta <----------------------------------
                     SizedBox(
                       height: 50,
                       child: OutlinedButton(
@@ -172,7 +171,13 @@ class SignInScreen extends StatelessWidget {
                             color: Colors.green,
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (c) {
+                              return SignUpScreen();
+                            }),
+                          );
+                        },
                         child: const Text(
                           'Criar Conta',
                           style: TextStyle(
