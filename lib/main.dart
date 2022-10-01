@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'src/pages/auth/sign_in_screen.dart';
 
 void main() {runApp(const MyApp());}

@@ -129,9 +129,7 @@ class _ProfileTabState extends State<ProfileTab> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        onPressed: () {
-                          updatePassword();
-                        },
+                        onPressed: () {},
                         child: const Text(
                           'Atualizar senha',
                           style: TextStyle(fontSize: 18),
