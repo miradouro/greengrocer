@@ -7,8 +7,14 @@ import '../../../services/util_services.dart';
 
 class ItemTile extends StatelessWidget {
   final ItemModel item;
+  final void Function(GlobalKey) cartAnimationMethod;
+  final GlobalKey imageGK = GlobalKey();
 
-  ItemTile({Key? key, required this.item}) : super(key: key);
+  ItemTile({
+    Key? key,
+    required this.item,
+    required this.cartAnimationMethod,
+  }) : super(key: key);
 
   final UtilServices utilServices = UtilServices();
 
@@ -20,7 +26,9 @@ class ItemTile extends StatelessWidget {
         GestureDetector(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (c) {
-              return ProductScreen(item: item,);
+              return ProductScreen(
+                item: item,
+              );
             }));
           },
           child: Card(
@@ -38,7 +46,10 @@ class ItemTile extends StatelessWidget {
                   Expanded(
                     child: Hero(
                       tag: item.imgUrl,
-                      child: Image.asset(item.imgUrl),
+                      child: Image.asset(
+                        item.imgUrl,
+                        key: imageGK,
+                      ),
                     ),
                   ),
 
@@ -83,7 +94,11 @@ class ItemTile extends StatelessWidget {
           top: 4,
           right: 4,
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              cartAnimationMethod(
+                imageGK,
+              );
+            },
             child: Container(
               height: 40,
               width: 35,
